@@ -4,8 +4,18 @@ import CharacterList from "./CharacterList";
 import "../Styles/LandingPage.scss";
 import ls from "../Services/LocalStorage";
 import React, { useState, useEffect } from "react";
+import api from "../Services/api";
 
 const LandingPage = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    api.getDataFromApi().then((dataApi) => {
+      console.log(dataApi);
+      setData(dataApi);
+    });
+  }, []);
+
   return (
     <>
       <header className="header">
@@ -17,7 +27,7 @@ const LandingPage = () => {
       </header>
       <main className="App">
         <Filters />
-        <CharacterList />
+        <CharacterList data={data} />
       </main>
     </>
   );
