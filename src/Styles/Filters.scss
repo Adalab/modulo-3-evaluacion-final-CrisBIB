@@ -1,0 +1,15 @@
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.inputFilter {
+  width: 250px;
+  border: solid 2px rgb(88, 189, 159);
+  background: black;
+  color: white;
+  padding: 5px;
+  &:focus {
+    border: solid 2px rgb(88, 189, 159);
+  }
+}
