@@ -1,6 +1,7 @@
 import "../Styles/App.scss";
 import { Route, Switch } from "react-router-dom";
 import CharacterDetail from "./CharacterDetail";
+import PageNotFound from "./PageNotFound";
 import LandingPage from "./LandingPage";
 import api from "../Services/api";
 import React, { useState, useEffect } from "react";
@@ -9,18 +10,21 @@ import "../Styles/Header.scss";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
+
   useEffect(() => {
     api.getDataFromApi().then((dataApi) => {
       setCharacters(dataApi);
     });
   }, []);
 
-  const renderDetail = (props) => {
-    const idCard = parseInt(props.match.params.id);
-    const selectCharacter = characters.find((character) => {
-      return character.id === idCard;
-    });
-    return <CharacterDetail character={selectCharacter} />;
+  const renderDetail = (routeProps) => {
+    const routIdCharacter = parseInt(routeProps.match.params.id);
+    const foundCharacter = characters.find(
+      (character) => character.id === routIdCharacter
+    );
+    if (foundCharacter) {
+      return <CharacterDetail character={foundCharacter} />;
+    } else return <PageNotFound />;
   };
   return (
     <div className="App">
