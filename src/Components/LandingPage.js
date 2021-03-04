@@ -11,10 +11,17 @@ const LandingPage = () => {
 
   useEffect(() => {
     api.getDataFromApi().then((dataApi) => {
-      console.log(dataApi);
       setData(dataApi);
     });
   }, []);
+
+  const handleSearch = (value) => {
+    const searchText = value.toLowerCase();
+    const characters = data.filter((character) =>
+      character.name.toLowerCase().includes(searchText)
+    );
+    setData(characters);
+  };
 
   return (
     <>
@@ -25,8 +32,8 @@ const LandingPage = () => {
           alt="Rick and Morty logo"
         />
       </header>
-      <main className="App">
-        <Filters />
+      <main className="main">
+        <Filters handleSearch={handleSearch} />
         <CharacterList data={data} />
       </main>
     </>

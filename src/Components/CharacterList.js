@@ -4,15 +4,23 @@ import "../Styles/CharacterList.scss";
 const CharacterList = (props) => {
   const characters = props.data.map((character) => {
     return (
-      <li key={character.id}>
-        <img src={character.image} alt={"image " + character.name} />
-        <h3>{character.name}</h3>
-        <h4>{character.species}</h4>
+      <li key={character.id} className="characterList__elements">
+        <img
+          className="characterList__elements--img"
+          src={character.image}
+          alt={"image " + character.name}
+        />
+        <div>
+          <h3 className="characterList__elements--name">{character.name}</h3>
+          <h4 className="characterList__elements--specie">
+            {character.species}
+          </h4>
+        </div>
       </li>
     );
   });
 
-  return <ul>{characters}</ul>;
+  return <ul className="characterList">{characters}</ul>;
 };
 
 export default CharacterList;

@@ -5,7 +5,7 @@ import LandingPage from "./LandingPage";
 
 const App = () => {
   return (
-    <div className="body">
+    <div className="App">
       <Switch>
         <Route exact path="/">
           <LandingPage />
