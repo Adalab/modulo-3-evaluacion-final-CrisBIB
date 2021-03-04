@@ -6,7 +6,6 @@ const Filters = (props) => {
   }; //No creo que esté funcionando correctamente
   const handleInput = (ev) => {
     const inputValue = ev.target.value;
-    console.log(inputValue);
     props.handleSearch(inputValue);
   };
   return (

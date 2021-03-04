@@ -3,25 +3,17 @@ import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import "../Styles/LandingPage.scss";
 import ls from "../Services/LocalStorage";
-import React, { useState, useEffect } from "react";
-import api from "../Services/api";
+import React, { useState } from "react";
 
-const LandingPage = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    api.getDataFromApi().then((dataApi) => {
-      setData(dataApi);
-    });
-  }, []);
+const LandingPage = (props) => {
+  const [searchText, setSearchText] = useState("");
 
   const handleSearch = (value) => {
-    const searchText = value.toLowerCase();
-    const characters = data.filter((character) =>
-      character.name.toLowerCase().includes(searchText)
-    );
-    setData(characters);
+    setSearchText(value);
   };
+  const filterCharacters = props.data.filter((character) =>
+    character.name.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   return (
     <>
@@ -34,7 +26,7 @@ const LandingPage = () => {
       </header>
       <main className="main">
         <Filters handleSearch={handleSearch} />
-        <CharacterList data={data} />
+        <CharacterList data={filterCharacters} />
       </main>
     </>
   );
