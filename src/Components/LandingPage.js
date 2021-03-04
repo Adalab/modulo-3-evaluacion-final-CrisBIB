@@ -1,4 +1,3 @@
-import logoHeader from "../Images/logoR&M.png";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import "../Styles/LandingPage.scss";
@@ -16,19 +15,10 @@ const LandingPage = (props) => {
   );
 
   return (
-    <>
-      <header className="header">
-        <img
-          className="header__logo"
-          src={logoHeader}
-          alt="Rick and Morty logo"
-        />
-      </header>
-      <main className="main">
-        <Filters handleSearch={handleSearch} />
-        <CharacterList data={filterCharacters} />
-      </main>
-    </>
+    <main className="main">
+      <Filters handleSearch={handleSearch} />
+      <CharacterList data={filterCharacters} />
+    </main>
   );
 };
 

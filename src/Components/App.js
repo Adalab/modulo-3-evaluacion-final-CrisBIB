@@ -4,6 +4,8 @@ import CharacterDetail from "./CharacterDetail";
 import LandingPage from "./LandingPage";
 import api from "../Services/api";
 import React, { useState, useEffect } from "react";
+import logoHeader from "../Images/logoR&M.png";
+import "../Styles/Header.scss";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -22,6 +24,13 @@ const App = () => {
   };
   return (
     <div className="App">
+      <header className="header">
+        <img
+          className="header__logo"
+          src={logoHeader}
+          alt="Rick and Morty logo"
+        />
+      </header>
       <Switch>
         <Route exact path="/">
           <LandingPage data={characters} />
