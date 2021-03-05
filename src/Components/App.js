@@ -9,13 +9,37 @@ import logoHeader from "../Images/logoR&M.png";
 import "../Styles/Header.scss";
 
 const App = () => {
-  const [characters, setCharacters] = useState([]);
-
   useEffect(() => {
     api.getDataFromApi().then((dataApi) => {
       setCharacters(dataApi);
     });
   }, []);
+  const [characters, setCharacters] = useState([]);
+  console.log(characters);
+
+  //const localStorageData = ls.get("filterData");
+  const [data, setData] = useState(
+    /*localStorageData || */ {
+      name: "",
+      gender: "Ambos",
+    }
+  );
+
+  const handleSearch = (inputName, inputValue) => {
+    setData({
+      ...data,
+      [inputName]: inputValue,
+    });
+    //ls.set("filterData", data);
+  };
+
+  const filterCharacters = characters
+    .filter((character) =>
+      character.name.toLowerCase().includes(data.name.toLowerCase())
+    )
+    .filter((character) =>
+      data.gender === "Ambos" ? true : character.gender === data.gender
+    );
 
   const renderDetail = (routeProps) => {
     const routIdCharacter = parseInt(routeProps.match.params.id);
@@ -25,6 +49,12 @@ const App = () => {
     if (foundCharacter) {
       return <CharacterDetail character={foundCharacter} />;
     } else return <PageNotFound />;
+  };
+  const handleReset = () => {
+    setData({
+      name: "",
+      gender: "Ambos",
+    });
   };
   return (
     <div className="App">
@@ -37,7 +67,12 @@ const App = () => {
       </header>
       <Switch>
         <Route exact path="/">
-          <LandingPage data={characters} />
+          <LandingPage
+            data={data}
+            characters={filterCharacters}
+            handleSearch={handleSearch}
+            handleReset={handleReset}
+          />
         </Route>
         <Route path="/characterdetail/:id" render={renderDetail} />
       </Switch>

@@ -1,12 +1,42 @@
 .form {
   display: flex;
-  justify-content: center;
-  margin: 10px 0;
-}
-.inputFilter {
-  width: 250px;
-  border: solid 2px rgb(88, 189, 159);
-  background: black;
+  flex-direction: column;
+  align-items: center;
   color: white;
-  padding: 5px;
+  width: 100%;
+  &__labels {
+    margin: 10px 3px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2srem;
+  }
+  &__inputs {
+    width: 70%;
+    border: solid 2px rgb(88, 189, 159);
+    background: black;
+    padding: 5px;
+    color: white;
+    ::placeholder {
+      color: grey;
+    }
+    &:focus {
+      outline: none;
+    }
+    &--selectGender,
+    &--selectEpisode {
+      margin: 10px 3px;
+      width: auto;
+    }
+  }
+}
+
+.filtersContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.genderContainer,
+.episodeContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
 }

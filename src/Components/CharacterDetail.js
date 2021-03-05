@@ -10,11 +10,13 @@ const CharacterDetail = (props) => {
           <i className="fas fa-chevron-right"></i> Volver
         </Link>
         <article className="characterDetails">
-          <img
-            className="characterDetails__img"
-            src={props.character.image}
-            alt={"image " + props.character.name}
-          />
+          <a href={props.character.image} target="_blank">
+            <img
+              className="characterDetails__img"
+              src={props.character.image}
+              alt={"image " + props.character.name}
+            />
+          </a>
           <div className="characterDetails__elements">
             <h3 className="characterDetails__elements__name">
               {props.character.name}

@@ -17,6 +17,12 @@
     &--name,
     &--specie {
       padding: 5px 5px;
+      color: white;
     }
   }
+}
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
 }

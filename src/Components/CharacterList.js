@@ -5,13 +5,12 @@ const CharacterList = (props) => {
   const dataCharacter = props.data.sort(function (a, b) {
     if (a.name > b.name) {
       return 1;
-    }
-    if (a.name < b.name) {
+    } else if (a.name < b.name) {
       return -1;
+    } else {
+      return 0;
     }
-    return 0;
   });
-  console.log(dataCharacter);
   const characters = dataCharacter.map((character) => {
     return (
       <li key={character.id} className="characterList__elements">
@@ -29,7 +28,6 @@ const CharacterList = (props) => {
       </li>
     );
   });
-
   return <ul className="characterList">{characters}</ul>;
 };
 

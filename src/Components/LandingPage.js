@@ -1,23 +1,33 @@
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import "../Styles/LandingPage.scss";
-import ls from "../Services/LocalStorage";
-import React, { useState } from "react";
+import TryAgain from "./TryAgain";
 
 const LandingPage = (props) => {
-  const [searchText, setSearchText] = useState("");
-
-  const handleSearch = (value) => {
-    setSearchText(value);
-  };
-  const filterCharacters = props.data.filter((character) =>
-    character.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  console.log(props);
+  if (props.characters.length === 0) {
+    return (
+      <>
+        <Filters
+          data={props.data}
+          characters={props.characters}
+          handleSearch={props.handleSearch}
+          handleReset={props.handleReset}
+        />
+        <TryAgain text={props.data.name} handleReset={props.handleReset} />
+      </>
+    );
+  }
 
   return (
     <main className="main">
-      <Filters handleSearch={handleSearch} />
-      <CharacterList data={filterCharacters} />
+      <Filters
+        data={props.data}
+        characters={props.characters}
+        handleSearch={props.handleSearch}
+        handleReset={props.handleReset}
+      />
+      <CharacterList data={props.characters} />
     </main>
   );
 };
