@@ -4,7 +4,6 @@ import "../Styles/LandingPage.scss";
 import TryAgain from "./TryAgain";
 
 const LandingPage = (props) => {
-  console.log(props);
   if (props.characters.length === 0) {
     return (
       <>
@@ -14,7 +13,7 @@ const LandingPage = (props) => {
           handleSearch={props.handleSearch}
           handleReset={props.handleReset}
         />
-        <TryAgain text={props.data.name} handleReset={props.handleReset} />
+        <TryAgain data={props.data} handleReset={props.handleReset} />
       </>
     );
   }

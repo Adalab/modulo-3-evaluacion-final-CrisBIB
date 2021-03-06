@@ -5,16 +5,18 @@
   color: white;
   width: 100%;
   &__labels {
-    margin: 10px 3px 0;
+    margin: 0.9rem 0.2rem 0;
+    color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2srem;
+    font-size: 1.2rem;
   }
   &__inputs {
-    width: 70%;
+    width: 60%;
     border: solid 2px rgb(88, 189, 159);
     background: black;
-    padding: 5px;
+    padding: 0.5rem;
     color: white;
+    font-size: 1.2rem;
     ::placeholder {
       color: grey;
     }
@@ -23,9 +25,12 @@
     }
     &--selectGender,
     &--selectEpisode {
-      margin: 10px 3px;
+      margin: 0.9rem 0.2rem;
       width: auto;
     }
+  }
+  &__options {
+    font-size: 1.2rem;
   }
 }
 

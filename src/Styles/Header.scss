@@ -1,11 +1,10 @@
 .header {
-  //Hacer mixins
   display: flex;
   justify-content: center;
   padding: 20px 0;
   background: black;
   &__logo {
-    height: 70px;
-    width: 200px;
+    height: 10rem;
+    width: 30rem;
   }
 }

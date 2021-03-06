@@ -6,17 +6,23 @@
   margin: auto;
   width: 80%;
   padding: 0;
+  @media all and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media all and (min-width: 1028px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
   &__elements {
-    margin: 10px 10px;
+    margin: 0.8rem 0.8rem;
     background: rgb(80, 197, 197);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 8px;
+    font-size: 1rem;
     &--img {
       width: 100%;
     }
     &--name,
     &--specie {
-      padding: 5px 5px;
+      padding: 0.5rem 0.5rem;
       color: white;
     }
   }

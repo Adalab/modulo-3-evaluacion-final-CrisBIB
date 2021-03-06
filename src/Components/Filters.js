@@ -2,7 +2,6 @@ import "../Styles/Filters.scss";
 import PropTypes from "prop-types";
 
 const Filters = (props) => {
-  console.log(props);
   const hadleForm = (ev) => {
     ev.preventDefault();
   };
@@ -31,64 +30,159 @@ const Filters = (props) => {
             name="gender"
             id=""
             onChange={handleInput}
+            value={props.data.gender}
           >
-            <option value="whatEver">Ambos</option>
-            <option value="Female">Mujer</option>
-            <option value="Male">Hombre</option>
+            <option className="form__options" value=""></option>
+            <option className="form__options" value="Female">
+              Mujer
+            </option>
+            <option className="form__options" value="Male">
+              Hombre
+            </option>
+            <option className="form__options" value="unknown">
+              Desconocido
+            </option>
           </select>
         </div>
         <div className="episodeContainer">
           <label htmlFor="gender" className="form__labels">
-            Busca por episodios
+            Busca por episodio
           </label>
           <select
             className="form__inputs form__inputs--selectEpisode"
-            name="gender"
+            name="episode"
             id=""
             onChange={handleInput}
+            value={props.data.episode}
           >
-            <option value="all">Todos</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-            <option value="32">32</option>
-            <option value="33">33</option>
-            <option value="34">34</option>
-            <option value="35">35</option>
-            <option value="36">36</option>
-            <option value="37">37</option>
-            <option value="38">38</option>
-            <option value="39">39</option>
-            <option value="40">40</option>
-            <option value="41">41</option>
+            {" "}
+            className="form__options"
+            <option className="form__options" value="Cualquiera">
+              Cualquiera
+            </option>
+            <option className="form__options" value="1">
+              Episodio 1
+            </option>
+            <option className="form__options" value="2">
+              Episodio 2
+            </option>
+            <option className="form__options" value="3">
+              Episodio 3
+            </option>
+            <option className="form__options" value="4">
+              Episodio 4
+            </option>
+            <option className="form__options" value="5">
+              Episodio 5
+            </option>
+            <option className="form__options" value="6">
+              Episodio 6
+            </option>
+            <option className="form__options" value="7">
+              Episodio 7
+            </option>
+            <option className="form__options" value="8">
+              Episodio 8
+            </option>
+            <option className="form__options" value="9">
+              Episodio 9
+            </option>
+            <option className="form__options" value="10">
+              Episodio 10
+            </option>
+            <option className="form__options" value="11">
+              Episodio 11
+            </option>
+            <option className="form__options" value="12">
+              Episodio 12
+            </option>
+            <option className="form__options" value="13">
+              Episodio 13
+            </option>
+            <option className="form__options" value="14">
+              Episodio 14
+            </option>
+            <option className="form__options" value="15">
+              Episodio 15
+            </option>
+            <option className="form__options" value="16">
+              Episodio 16
+            </option>
+            <option className="form__options" value="17">
+              Episodio 17
+            </option>
+            <option className="form__options" value="18">
+              Episodio 18
+            </option>
+            <option className="form__options" value="19">
+              Episodio 19
+            </option>
+            <option className="form__options" value="20">
+              Episodio 20
+            </option>
+            <option className="form__options" value="21">
+              Episodio 21
+            </option>
+            <option className="form__options" value="22">
+              Episodio 22
+            </option>
+            <option className="form__options" value="23">
+              Episodio 23
+            </option>
+            <option className="form__options" value="24">
+              Episodio 24
+            </option>
+            <option className="form__options" value="25">
+              Episodio 25
+            </option>
+            <option className="form__options" value="26">
+              Episodio 26
+            </option>
+            <option className="form__options" value="27">
+              Episodio 27
+            </option>
+            <option className="form__options" value="28">
+              Episodio 28
+            </option>
+            <option className="form__options" value="29">
+              Episodio 29
+            </option>
+            <option className="form__options" value="30">
+              Episodio 30
+            </option>
+            <option className="form__options" value="31">
+              Episodio 31
+            </option>
+            <option className="form__options" value="32">
+              Episodio 32
+            </option>
+            <option className="form__options" value="33">
+              Episodio 33
+            </option>
+            <option className="form__options" value="34">
+              Episodio 34
+            </option>
+            <option className="form__options" value="35">
+              Episodio 35
+            </option>
+            <option className="form__options" value="36">
+              Episodio 36
+            </option>
+            <option className="form__options" value="37">
+              Episodio 37
+            </option>
+            <option className="form__options" value="38">
+              Episodio 38
+            </option>
+            <option className="form__options" value="39">
+              Episodio 39
+            </option>
+            <option className="form__options" value="40">
+              Episodio 40
+            </option>
+            <option className="form__options" value="41">
+              Episodio 41
+            </option>
           </select>
         </div>
       </div>

@@ -15,19 +15,21 @@ const App = () => {
     });
   }, []);
   const [characters, setCharacters] = useState([]);
+
   console.log(characters);
 
   //const localStorageData = ls.get("filterData");
-  const [data, setData] = useState(
+  const [filters, setFilters] = useState(
     /*localStorageData || */ {
       name: "",
-      gender: "Ambos",
+      gender: "",
+      episode: "Cualquiera",
     }
   );
 
   const handleSearch = (inputName, inputValue) => {
-    setData({
-      ...data,
+    setFilters({
+      ...filters,
       [inputName]: inputValue,
     });
     //ls.set("filterData", data);
@@ -35,12 +37,20 @@ const App = () => {
 
   const filterCharacters = characters
     .filter((character) =>
-      character.name.toLowerCase().includes(data.name.toLowerCase())
+      character.name.toLowerCase().includes(filters.name.toLowerCase())
     )
+    .filter((character) => {
+      return filters.gender === "" ? true : character.gender === filters.gender;
+    })
     .filter((character) =>
-      data.gender === "Ambos" ? true : character.gender === data.gender
+      filters.episode === "Cualquiera"
+        ? true
+        : character.episode.find(
+            (episode) =>
+              episode ===
+              `https://rickandmortyapi.com/api/episode/${filters.episode}`
+          )
     );
-
   const renderDetail = (routeProps) => {
     const routIdCharacter = parseInt(routeProps.match.params.id);
     const foundCharacter = characters.find(
@@ -48,12 +58,13 @@ const App = () => {
     );
     if (foundCharacter) {
       return <CharacterDetail character={foundCharacter} />;
-    } else return <PageNotFound />;
+    } else return <PageNotFound handleReset={handleReset} />;
   };
   const handleReset = () => {
-    setData({
+    setFilters({
       name: "",
-      gender: "Ambos",
+      gender: "",
+      episode: "Cualquiera",
     });
   };
   return (
@@ -68,7 +79,7 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <LandingPage
-            data={data}
+            data={filters}
             characters={filterCharacters}
             handleSearch={handleSearch}
             handleReset={handleReset}
