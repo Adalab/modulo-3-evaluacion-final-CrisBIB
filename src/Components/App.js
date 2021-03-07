@@ -73,7 +73,7 @@ const App = () => {
         <img
           className="header__logo"
           src={logoHeader}
-          alt="Rick and Morty logo"
+          alt="Rick y Morty logo"
         />
       </header>
       <Switch>

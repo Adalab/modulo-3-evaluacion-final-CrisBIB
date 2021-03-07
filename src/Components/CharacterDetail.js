@@ -21,25 +21,25 @@ const CharacterDetail = (props) => {
               {props.character.name}
             </h3>
             <p>
-              Status:{" "}
+              Estatus:{" "}
               <span className="characterDetails__elements__item">
                 {props.character.status}
               </span>
             </p>
             <p>
-              Specie:{" "}
+              Especie:{" "}
               <span className="characterDetails__elements__item">
                 {props.character.species}
               </span>
             </p>
             <p>
-              Origin:{" "}
+              Origen:{" "}
               <span className="characterDetails__elements__item">
                 {props.character.origin.name}
               </span>
             </p>
             <p>
-              Episodes:{" "}
+              Episodios:{" "}
               <span className="characterDetails__elements__item">
                 {props.character.episode.length}
               </span>
