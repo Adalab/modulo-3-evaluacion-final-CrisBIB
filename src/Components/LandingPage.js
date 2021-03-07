@@ -32,3 +32,8 @@ const LandingPage = (props) => {
 };
 
 export default LandingPage;
+
+LandingPage.propTypes = {
+  data: PropTypes.object,
+  characters: PropTypes.array,
+};

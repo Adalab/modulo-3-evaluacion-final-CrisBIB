@@ -191,3 +191,9 @@ const Filters = (props) => {
 };
 
 export default Filters;
+
+Filters.propTypes = {
+  name: PropTypes.string,
+  gender: PropTypes.string,
+  episode: PropTypes.string,
+};

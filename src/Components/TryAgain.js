@@ -1,4 +1,5 @@
 import "../Styles/TryAgain.scss";
+import PropTypes from "prop-types";
 
 const TryAgain = (props) => {
   const handleClick = () => {
@@ -42,3 +43,10 @@ const TryAgain = (props) => {
 };
 
 export default TryAgain;
+
+TryAgain.propTypes = {
+  data: PropTypes.object,
+  name: PropTypes.string,
+  gender: PropTypes.string,
+  episode: PropTypes.string,
+};

@@ -1,5 +1,6 @@
 import "../Styles/PageNotFound.scss";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const PageNotFound = (props) => {
   const handleClick = () => {
