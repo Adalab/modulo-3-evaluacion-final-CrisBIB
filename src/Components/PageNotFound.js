@@ -7,13 +7,13 @@ const PageNotFound = (props) => {
   };
   return (
     <main className="mainNotFound">
-      <p>El personaje que buscas no existe</p>
+      <p>El personaje que buscas no existe.</p>
       <Link to="/">
         <form>
           <input
             type="button"
             onClick={handleClick}
-            value="Busca de nuevo AQUÍ"
+            value="Busca de nuevo"
             className="button"
           ></input>
         </form>
