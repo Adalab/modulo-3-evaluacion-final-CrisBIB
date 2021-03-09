@@ -19,6 +19,10 @@ const LandingPage = (props) => {
     );
   }
 
+  const handleClick = () => {
+    props.handleReset();
+  };
+
   return (
     <main className="main">
       <Filters
@@ -27,6 +31,11 @@ const LandingPage = (props) => {
         handleSearch={props.handleSearch}
         handleReset={props.handleReset}
       />
+      <form className="buttonContainer">
+        <button onClick={handleClick} className="buttonReset">
+          Limpiar filtros
+        </button>
+      </form>
       <CharacterList data={props.characters} />
     </main>
   );

@@ -7,6 +7,7 @@ import api from "../Services/api";
 import React, { useState, useEffect } from "react";
 import logoHeader from "../Images/logoR&M.png";
 import "../Styles/Header.scss";
+import ls from "../Services/LocalStorage";
 
 const App = () => {
   useEffect(() => {
@@ -14,13 +15,12 @@ const App = () => {
       setCharacters(dataApi);
     });
   }, []);
+
   const [characters, setCharacters] = useState([]);
 
-  console.log(characters);
-
-  //const localStorageData = ls.get("filterData");
+  const localStorageData = ls.get("filterData") || {};
   const [filters, setFilters] = useState(
-    /*localStorageData || */ {
+    localStorageData.filters || {
       name: "",
       gender: "",
       episode: "Cualquiera",
@@ -28,12 +28,15 @@ const App = () => {
     }
   );
 
+  useEffect(() => {
+    ls.set("filterData", { filters });
+  });
+
   const handleSearch = (inputName, inputValue) => {
     setFilters({
       ...filters,
       [inputName]: inputValue,
     });
-    //ls.set("filterData", data);
   };
 
   const filterCharacters = characters
