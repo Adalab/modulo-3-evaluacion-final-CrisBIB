@@ -24,7 +24,8 @@
       outline: none;
     }
     &--selectGender,
-    &--selectEpisode {
+    &--selectEpisode,
+    &--selectStatus {
       margin: 0.9rem 0.2rem;
       width: auto;
     }
@@ -40,7 +41,8 @@
   justify-content: space-evenly;
 }
 .genderContainer,
-.episodeContainer {
+.episodeContainer,
+.statusContainer {
   display: flex;
   flex-direction: column;
   align-content: space-around;

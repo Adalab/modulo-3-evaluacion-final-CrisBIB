@@ -185,6 +185,27 @@ const Filters = (props) => {
             </option>
           </select>
         </div>
+        <div className="statusContainer">
+          <label htmlFor="status" className="form__labels">
+            Busca por estado
+          </label>
+          <select
+            onChange={handleInput}
+            name="status"
+            className="form__inputs form__inputs--selectStatus"
+          >
+            <option className="form__options" value=""></option>
+            <option className="form__options" value="Alive">
+              Vivo
+            </option>
+            <option className="form__options" value="Dead">
+              Muerto
+            </option>
+            <option className="form__options" value="unknown">
+              Desconocido
+            </option>
+          </select>
+        </div>
       </div>
     </form>
   );

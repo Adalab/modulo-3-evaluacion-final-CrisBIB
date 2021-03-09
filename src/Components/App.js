@@ -24,6 +24,7 @@ const App = () => {
       name: "",
       gender: "",
       episode: "Cualquiera",
+      status: "",
     }
   );
 
@@ -50,7 +51,10 @@ const App = () => {
               episode ===
               `https://rickandmortyapi.com/api/episode/${filters.episode}`
           )
-    );
+    )
+    .filter((character) => {
+      return filters.status === "" ? true : character.status === filters.status;
+    });
   const renderDetail = (routeProps) => {
     const routIdCharacter = parseInt(routeProps.match.params.id);
     const foundCharacter = characters.find(
@@ -65,6 +69,7 @@ const App = () => {
       name: "",
       gender: "",
       episode: "Cualquiera",
+      status: "",
     });
   };
   return (

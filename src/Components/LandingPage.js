@@ -2,6 +2,7 @@ import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import "../Styles/LandingPage.scss";
 import TryAgain from "./TryAgain";
+import PropTypes from "prop-types";
 
 const LandingPage = (props) => {
   if (props.characters.length === 0) {
